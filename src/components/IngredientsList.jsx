@@ -11,7 +11,7 @@ export default function IngredientsList(props){
             {props.ingredients.length > 3 && <div className="get-recipe-container">
                 <div>
                     <h3>Ready for Spice AI to take Over?</h3>
-                    <p>Generate a Recipe based off Ingredients on hand</p>
+                    <p>Generate a Recipe based off the ingredients on hand</p>
                 </div>
                 <button onClick = {props.getRecipe}>Generate Recipe</button>
                 </div>}

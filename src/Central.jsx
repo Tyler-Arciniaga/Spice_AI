@@ -1,5 +1,7 @@
 import React from "react"
 import IngredientsList from "./components/IngredientsList"
+import { getRecipeFromChefClaude } from "./ai";
+import ClaudeRecipe from "./components/ClaudeRecipe";
 
 export default function Central(){
 
@@ -13,8 +15,9 @@ export default function Central(){
         setIngredients(prevIngredients => [...prevIngredients,new_ingredient])
         
     }
-    function toggleRecipeShown(){
-        setRecipeShown(prevShown => !prevShown)
+    async function getRecipe(){
+        const recipeMarkdown = await getRecipeFromChefClaude(ingredients)
+        setRecipe(recipeMarkdown)
     }
     return(
         <main>
@@ -30,6 +33,9 @@ export default function Central(){
 
             {ingredients.length > 0 && 
                 <IngredientsList ingredients = {ingredients} getRecipe = {getRecipe}/>}
+
+            {recipe && <ClaudeRecipe recipe = {recipe}/>}
+
         </main>
     )
 
