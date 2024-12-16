@@ -23,12 +23,13 @@ export default function Central(){
         <main>
             <form onSubmit={addIngredient} className = "add-ingredients">
                 <input
+                    className = "add-ingredients-input"
                     type = "text"
                     placeholder = "i.e. Peppers"
                     aria-label = "Add Ingredient"
                     name = "ingredient"
                 />
-                <button>Add Ingredient</button>
+                <button className = "add-ingredients-button">Add Ingredient</button>
             </form>
 
             {ingredients.length > 0 && 
